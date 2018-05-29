@@ -6,11 +6,11 @@ import Section from '../../components/section';
 import Button from '../../components/button';
 
 const countrys = [
-  {value: 'RU', label: '俄罗斯'},
-  {value: 'BR', label: '巴西'},
-  {value: 'VN', label: '越南'},
-  {value: 'KH', label: '柬埔寨'},
-  {value: 'PH', label: '菲律宾'}
+  { value: 'RU', label: '俄罗斯' },
+  { value: 'BR', label: '巴西' },
+  { value: 'VN', label: '越南' },
+  { value: 'KH', label: '柬埔寨' },
+  { value: 'PH', label: '菲律宾' },
 ];
 
 const selectData = {
@@ -20,10 +20,8 @@ const selectData = {
   onChange: console.log.bind(console),
 };
 
-
 const GroupTest = () => (
   <Section title="组合输入框">
-
     <InputGroup size="small">
       <Input placeholder="请输入内容..." />
       <Button primary raised label="搜索" />
@@ -66,7 +64,6 @@ const GroupTest = () => (
       <Input placeholder="请输入内容..." />
       <Button label="搜索" />
     </InputGroup>
-
   </Section>
 );
 

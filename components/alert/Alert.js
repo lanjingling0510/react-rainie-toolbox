@@ -46,7 +46,7 @@ const factory = (FontIcon) => {
         showIcon,
         closable,
         theme,
-        ...other,
+        ...other
       } = this.props;
 
       const {

@@ -118,7 +118,7 @@ const popupRenderFactory = (options = {}) => {
       render() {
         const {
           delay, // eslint-disable-line
-          ...other,
+          ...other
         } = this.props;
 
         return <WrappedComponent

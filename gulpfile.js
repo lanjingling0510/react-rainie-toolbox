@@ -10,7 +10,7 @@ gulp.task('js', function () {
   return gulp.src([
     './components/**/*.js',
     '!./components/**/__test__/*.js',
-    '!./components/__mocks__/**/*.js'
+    '!./components/__mocks__/**/*.js',
   ])
     .pipe(babel(babelrc.production))
     .pipe(gulp.dest('./lib'));
@@ -27,14 +27,14 @@ gulp.task('css', function () {
         'last 4 versions',
         'Firefox ESR',
         'not ie < 9',
-      ]
+      ],
     }),
     require('postcss-nested')(),
   ];
 
   return gulp.src([
       './components/*.css',
-      './components/**/*.css'
+      './components/**/*.css',
     ])
     .pipe(postcss(plugins))
     .pipe(gulp.dest('./lib'));

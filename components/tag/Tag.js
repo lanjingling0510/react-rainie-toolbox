@@ -54,7 +54,7 @@ const factory = (FontIcon) => {
         className,
         theme,
         style,
-        ...other,
+        ...other
       } = this.props;
 
       const {

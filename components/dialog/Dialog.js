@@ -72,7 +72,7 @@ const factory = (Overlay, Portal, Button) => {
                 {children}
               </section>
               {actions.length
-                ? <nav role="navigation" className={theme.navigation}>
+                ? <nav className={theme.navigation}>
                   {actions}
                 </nav>
                 : null}

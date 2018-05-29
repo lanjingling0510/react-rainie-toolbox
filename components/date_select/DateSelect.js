@@ -19,7 +19,7 @@ const factory = (Trigger, SelectInput, Calendar) => {
       onChange: PropTypes.func,
       theme: PropTypes.shape({
         DaySelected: PropTypes.object,
-      })
+      }),
     }
 
     static defaultProps = {
@@ -38,8 +38,8 @@ const factory = (Trigger, SelectInput, Calendar) => {
 
       this.defaultTheme = {
         DaySelected: {
-          background: theme.DaySelected_background
-        }
+          background: theme.DaySelected_background,
+        },
       };
     }
 
@@ -88,7 +88,7 @@ const factory = (Trigger, SelectInput, Calendar) => {
         maxDate, // eslint-disable-line
         onChange, // eslint-disable-line
         theme, // eslint-disable-line
-        ...other,
+        ...other
       } = this.props;
 
       const state = this.state;

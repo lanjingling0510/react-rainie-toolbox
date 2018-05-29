@@ -12,7 +12,7 @@ const ROOT_PATH = process.cwd();
 const plugins = [
   new HtmlWebpackPlugin({
     inject: 'body',
-    template: 'index.html'
+    template: 'index.html',
   }),
 
   new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify('development')}),
@@ -35,7 +35,7 @@ const plugins = [
 
       eslint: {
         configFile: path.join(__dirname, '../.eslintrc'),
-        useEslintrc: false
+        useEslintrc: false,
       },
 
       postcss: function (webpack) {
@@ -49,7 +49,7 @@ const plugins = [
               'last 4 versions',
               'Firefox ESR',
               'not ie < 9',
-            ]
+            ],
           }),
           require('postcss-nested')(),
         ];
@@ -62,7 +62,7 @@ const plugins = [
       loaders: [{
           path: 'babel',
           query: babelrc.development,
-      }]
+      }],
   }),
 
   happyPackPlugin({
@@ -121,11 +121,11 @@ module.exports = {
   },
 
   resolveLoader: {
-    moduleExtensions: ['-loader']
+    moduleExtensions: ['-loader'],
   },
 
   performance: {
-    hints: false
+    hints: false,
   },
 
   plugins,
@@ -146,7 +146,7 @@ module.exports = {
           path.resolve(ROOT_PATH, 'components'),
         ],
         enforce: 'pre',
-        loader: 'eslint'
+        loader: 'eslint',
       }, {
         test: /\.css$/,
         include: [
@@ -158,20 +158,20 @@ module.exports = {
         test: /\.css$/,
         include: [
           /node_modules/,
-          path.resolve(ROOT_PATH, 'src', 'style')
+          path.resolve(ROOT_PATH, 'src', 'style'),
         ],
         loaders: 'happypack/loader?id=happypack-glocal-css',
       }, {
           test: /\.(png|jpg|jpeg|gif|webp)$/i,
-          loader: 'url?limit=10000'
+          loader: 'url?limit=10000',
       }, {
           test: /\.(ttf|eot|svg|otf)(\?v=\d(\.\d){2})?$/,
-          loader: 'file'
+          loader: 'file',
       }, {
           test: /\.woff(2)?(\?v=\d(\.\d){2})?$/,
-          loader: 'url?limit=10000&minetype=application/font-woff'
-      }
-    ]
+          loader: 'url?limit=10000&minetype=application/font-woff',
+      },
+    ],
   },
 
   externals: {

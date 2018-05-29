@@ -116,7 +116,7 @@ class LazyImage extends Component {
       height,
       placeholder,
       className,
-      ...other,
+      ...other
     } = this.props;
 
     const {

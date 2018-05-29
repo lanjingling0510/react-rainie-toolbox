@@ -114,7 +114,7 @@ class Overlay extends Component<DefaultProps, Props, State> {
       lockScroll, // eslint-disable-line
       onEscKeyDown, // eslint-disable-line
       theme,
-      ...other,
+      ...other
     } = this.props;
 
     return (

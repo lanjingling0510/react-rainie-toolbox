@@ -33,12 +33,12 @@ const plugins = [
           require('postcss-url')(),
           require('postcss-mixins')({mixins}),
           require('postcss-cssnext')({
-            browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9']
+            browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
           }),
-          require('postcss-nested')()
+          require('postcss-nested')(),
         ];
-      }
-    }
+      },
+    },
   }),
 
   happyPackPlugin({
@@ -46,32 +46,32 @@ const plugins = [
     loaders: [
       {
         path: 'babel',
-        query: babelrc.doc
-      }
-    ]
+        query: babelrc.doc,
+      },
+    ],
   }),
 
   happyPackPlugin({
     name: 'happypack-component-css',
-    loaders: ['style', 'css?modules&localIdentName=[hash:base64:5]', 'postcss']
+    loaders: ['style', 'css?modules&localIdentName=[hash:base64:5]', 'postcss'],
   }),
 
   happyPackPlugin({
     name: 'happypack-glocal-css',
-    loaders: ['style', 'css?&importLoaders=1', 'postcss']
+    loaders: ['style', 'css?&importLoaders=1', 'postcss'],
   }),
 
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.optimize.UglifyJsPlugin({
     compress: {
-      warnings: false
-    }
+      warnings: false,
+    },
   }),
   new webpack.optimize.CommonsChunkPlugin({
     name: [
-      'vendor', 'manifest'
+      'vendor', 'manifest',
     ], // vendor libs + extracted manifest
-    minChunks: Infinity
+    minChunks: Infinity,
   }),
   new webpack.HashedModuleIdsPlugin(),
   // new WebpackChunkHash()
@@ -88,27 +88,27 @@ module.exports = {
   devtool: 'hidden-source-map',
 
   entry: {
-    main: './index.js'
+    main: './index.js',
   },
 
   output: {
     path: ROOT_PATH + '/docs',
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].min.js',
-    publicPath: './'
+    publicPath: './',
   },
 
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.json', '.js', '.jsx']
+    extensions: ['.json', '.js', '.jsx'],
   },
 
   resolveLoader: {
-    moduleExtensions: ['-loader']
+    moduleExtensions: ['-loader'],
   },
 
   performance: {
-    hints: false
+    hints: false,
   },
 
   plugins,
@@ -126,27 +126,27 @@ module.exports = {
         test: /\.css$/,
         include: [
           path.resolve(ROOT_PATH, 'src', 'components'),
-          path.resolve(ROOT_PATH, 'components')
+          path.resolve(ROOT_PATH, 'components'),
         ],
-        loaders: 'happypack/loader?id=happypack-component-css'
+        loaders: 'happypack/loader?id=happypack-component-css',
       }, {
         test: /\.css$/,
         include: [
           /node_modules/,
-          path.resolve(ROOT_PATH, 'src', 'style')
+          path.resolve(ROOT_PATH, 'src', 'style'),
         ],
-        loaders: 'happypack/loader?id=happypack-glocal-css'
+        loaders: 'happypack/loader?id=happypack-glocal-css',
       }, {
         test: /\.(png|jpg|jpeg|gif|webp)$/i,
-        loader: 'url?limit=10000'
+        loader: 'url?limit=10000',
       }, {
         test: /\.(ttf|eot|svg|otf)(\?v=\d(\.\d){2})?$/,
-        loader: 'file'
+        loader: 'file',
       }, {
         test: /\.woff(2)?(\?v=\d(\.\d){2})?$/,
-        loader: 'url?limit=10000&minetype=application/font-woff'
-      }
-    ]
+        loader: 'url?limit=10000&minetype=application/font-woff',
+      },
+    ],
   },
 
   // Ensure that webpack polyfills the following node features for use
@@ -157,6 +157,6 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     __dirname: true,
-    __filename: true
-  }
+    __filename: true,
+  },
 };

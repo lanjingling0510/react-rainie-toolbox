@@ -88,7 +88,7 @@ const tooltipFactory = (options = {}) => {
           theme,
           placement, // eslint-disable-line
           action,
-          ...other,
+          ...other
         } = this.props;
 
         const popupElement = this.getPopupElement();

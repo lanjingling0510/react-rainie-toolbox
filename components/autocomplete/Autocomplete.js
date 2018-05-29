@@ -46,7 +46,7 @@ const factory = (Trigger: Component, Input: Component, Menu: Component, MenuItem
       align: {
         points: ['tl', 'bl'],
         offset: [0, 10],
-      }
+      },
     }
 
     state: State = {
@@ -57,7 +57,7 @@ const factory = (Trigger: Component, Input: Component, Menu: Component, MenuItem
     componentWillReceiveProps(nextProps, nextState) {
       this.setState({
         open: nextProps.dataSource.length > 0 &&
-          nextProps.dataSource !== this.props.dataSource
+          nextProps.dataSource !== this.props.dataSource,
       });
     }
 
@@ -121,7 +121,7 @@ const factory = (Trigger: Component, Input: Component, Menu: Component, MenuItem
     toggleMenu = () => {
       this.setState({
         open: this.props.dataSource.length > 0 && !this.state.open,
-        selectedItem: -1
+        selectedItem: -1,
       });
     }
 
@@ -152,7 +152,7 @@ const factory = (Trigger: Component, Input: Component, Menu: Component, MenuItem
 
       const inputElement = React.cloneElement(
          child,
-         inputProps,
+         inputProps
       );
 
       return (

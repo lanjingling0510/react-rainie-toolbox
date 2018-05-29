@@ -5,7 +5,7 @@ class TableTh extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    theme: PropTypes.shape({th: PropTypes.string})
+    theme: PropTypes.shape({th: PropTypes.string}),
   }
 
   render() {

@@ -245,7 +245,7 @@ const rippleFactory = (options = {}) => {
 
         const { ripples } = this.state;
         const childRipples = Object.keys(ripples).map(key =>
-          this.renderRipple(key, rippleClassName, ripples[key]),
+          this.renderRipple(key, rippleClassName, ripples[key])
         );
         const childProps = {
           onMouseDown: this.handleMouseDown,

@@ -54,7 +54,7 @@ const factory = () => {
         theme,
         index, // eslint-disable-line
         onActive, // eslint-disable-line
-        ...other,
+        ...other
       } = this.props;
 
       const classes = classnames(theme.label, {

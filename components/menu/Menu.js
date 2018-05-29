@@ -38,7 +38,7 @@ class Menu extends Component {
       children,
       theme,
       mode,
-      ...other,
+      ...other
     } = this.props;
 
     const classes = classnames(theme.menu, theme[mode], className);

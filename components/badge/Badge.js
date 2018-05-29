@@ -53,7 +53,7 @@ const badgeFactory = (options = {}) => {
           showZero,
           className,
           overflowCount,
-          ...other,
+          ...other
         } = this.props;
 
         const classes = classnames(theme.badge, className);

@@ -26,7 +26,7 @@ const factory = (name) => {
         children,
         className,
         hasSider,
-        ...others,
+        ...others
       } = this.props;
 
       const classes = classNames(theme[name], className, {

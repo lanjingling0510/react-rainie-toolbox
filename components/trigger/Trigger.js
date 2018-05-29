@@ -9,7 +9,7 @@ class Trigger extends Component {
     children: PropTypes.any,
     action: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string)
+      PropTypes.arrayOf(PropTypes.string),
     ]),
     popup: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
     mask: PropTypes.bool,
@@ -18,7 +18,7 @@ class Trigger extends Component {
     popupAlign: PropTypes.object,
     popupVisible: PropTypes.bool,
     matchTargetWidth: PropTypes.bool,
-    onPopupVisibleChange: PropTypes.func
+    onPopupVisibleChange: PropTypes.func,
   }
 
   static defaultProps = {
@@ -28,13 +28,13 @@ class Trigger extends Component {
     maskClosable: false,
     popupAlign: {
       points: [
-        'tl', 'bl'
+        'tl', 'bl',
       ], // align top left point of sourceNode with top right point of targetNode
       offset: [
-        0, 0
+        0, 0,
       ], // the offset sourceNode by 10px in x and 20px in y,
     },
-    onPopupVisibleChange: () => void 0
+    onPopupVisibleChange: () => void 0,
   }
 
   constructor(props) {
@@ -173,12 +173,12 @@ class Trigger extends Component {
   }
 
   render() {
-    const {children,} = this.props;
+    const {children} = this.props;
 
     const child = React.Children.only(children);
 
     const newChildProps = {
-      ref: "_rootComponent"
+      ref: "_rootComponent",
     };
 
     if (this.isClickAction()) {

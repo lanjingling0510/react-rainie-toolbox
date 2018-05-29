@@ -3,7 +3,7 @@ module.exports = {
     "babelrc": false,
     "presets": ['cq'],
     "plugins": [
-      "transform-decorators-legacy"
+      "transform-decorators-legacy",
     ],
     "cacheDirectory": "./webpack_cache/",
   },
@@ -13,7 +13,7 @@ module.exports = {
     "presets": ['cq'],
     "plugins": [
       "dev-expression",
-      "transform-decorators-legacy"
+      "transform-decorators-legacy",
     ],
     "cacheDirectory": "./webpack_cache/",
   },
@@ -26,9 +26,9 @@ module.exports = {
       [
         "transform-react-remove-prop-types",
         {
-          "removeImport": true
-        }
-      ]
-    ]
-  }
+          "removeImport": true,
+        },
+      ],
+    ],
+  },
 };

@@ -55,7 +55,7 @@ const factory = (FontIcon) => {
         onPrefixClick,
         onSuffixClick,
         style,
-        ...other,
+        ...other
       } = this.props;
 
 
@@ -73,14 +73,14 @@ const factory = (FontIcon) => {
 
       const classes = classnames(theme.input, theme[size], className);
 
-      const prefixIcon = typeof prefix === 'string' ?
+      const prefixIcon = prefix && (typeof prefix === 'string') ?
           <FontIcon
             theme={theme}
             onClick={onPrefixClick}
             className={theme.prefix}
             value={prefix} /> : prefix;
 
-      const suffixIcon = typeof suffix === 'string' ?
+      const suffixIcon = suffix && (typeof suffix === 'string') ?
           <FontIcon
             theme={theme}
             onClick={onSuffixClick}

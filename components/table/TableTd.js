@@ -9,7 +9,7 @@ class TableTd extends Component {
     className: PropTypes.string,
     theme: PropTypes.shape({
       td: PropTypes.string,
-    })
+    }),
   }
 
   render() {
@@ -17,7 +17,7 @@ class TableTd extends Component {
       theme,
       children,
       className,
-      ...other,
+      ...other
     } = this.props;
 
     const classes = classnames(theme.td, className);

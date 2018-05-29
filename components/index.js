@@ -26,3 +26,4 @@ export {default as Switch} from './switch';
 export {default as Table} from './table';
 export * from './tabs';
 export {default as Tag} from './tag';
+

@@ -133,7 +133,7 @@ const factory = (Trigger, SelectInput, Menu, MenuItem) => {
         returnValue, // eslint-disable-line
         maxRowNum, // eslint-disable-line
         onChange, // eslint-disable-line
-        ...other,
+        ...other
       } = this.props;
 
       return (

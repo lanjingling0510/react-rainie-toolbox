@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import FontIcon from '../font_icon';
 
 class Sider extends React.Component {
-
   static propTypes = {
     children: PropTypes.node,
     collapsible: PropTypes.bool,
@@ -18,7 +17,7 @@ class Sider extends React.Component {
       sider: PropTypes.string,
       collapsed: PropTypes.string,
     }),
-  }
+  };
 
   static defaultProps = {
     collapsible: true,
@@ -26,7 +25,7 @@ class Sider extends React.Component {
     width: 200,
     className: '',
     collapsedWidth: 64,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -51,7 +50,7 @@ class Sider extends React.Component {
     }
   }
 
-  setCollapsed = (collapsed) => {
+  setCollapsed = collapsed => {
     if (!('collapsed' in this.props)) {
       this.setState({
         collapsed,
@@ -61,14 +60,14 @@ class Sider extends React.Component {
     if (onCollapse) {
       onCollapse(collapsed);
     }
-  }
+  };
 
   handleCollapsedToggle = () => {
     const collapsed = !this.state.collapsed;
     this.setCollapsed(collapsed);
-  }
+  };
 
-  render () {
+  render() {
     const {
       collapsible,
       width,
@@ -79,16 +78,20 @@ class Sider extends React.Component {
       onCollapse, // eslint-disable-line
       collapsed, // eslint-disable-line
       defaultCollapsed, // eslint-disable-line
-      ...other,
+      ...other
     } = this.props;
 
     const state = this.state;
 
     const siderWidth = state.collapsed ? collapsedWidth : width;
 
-    const classes = classnames(theme.sider, {
-      [theme.collapsed]: state.collapsed,
-    }, className);
+    const classes = classnames(
+      theme.sider,
+      {
+        [theme.collapsed]: state.collapsed,
+      },
+      className
+    );
 
     const styles = {
       flex: `0 0 ${siderWidth}px`,
@@ -96,15 +99,14 @@ class Sider extends React.Component {
     };
 
     return (
-      <div
-        {...other}
-        style={styles}
-        className={classes}>
-        {collapsible &&
+      <div {...other} style={styles} className={classes}>
+        {collapsible && (
           <FontIcon
             className={theme.trigger}
             onClick={this.handleCollapsedToggle}
-            value={state.collapsed ? 'menu-unfold' : 'menu-fold'} />}
+            value={state.collapsed ? 'menu-unfold' : 'menu-fold'}
+          />
+        )}
         {children}
       </div>
     );

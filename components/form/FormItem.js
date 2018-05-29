@@ -23,14 +23,11 @@ const factory = (Input) => {
 
     renderChildren = (child) => {
       const props = this.props;
-
       return React.cloneElement(child, {theme: props.theme});
     }
 
     render() {
-      const {theme, label, error, children, className} = this.props;
-
-      const child = React.Children.only(children);
+      const {theme, label, error, children, className, ...other} = this.props;
 
       const classes = classnames(theme.formItem, {
         [theme.errored]: !!error,
@@ -39,9 +36,9 @@ const factory = (Input) => {
       }, className);
 
       return (
-        <div className={classes}>
+        <div className={classes} {...other}>
           <label className={theme.label}>{label}</label>
-          {this.renderChildren(child)}
+          {children}
           {!!error && <span className={theme.error}>{error}</span>}
         </div>
       );

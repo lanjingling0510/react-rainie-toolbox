@@ -4,7 +4,7 @@ import {
   startOfDay,
   addYears,
   addMonths,
-  isSameDay,
+  isSameDay
 } from 'date-fns';
 
 const defineds = {

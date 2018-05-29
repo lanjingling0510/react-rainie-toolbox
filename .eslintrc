@@ -1,8 +1,14 @@
 {
-  "extends": ["cqaso-kit"],
+  "extends": "react-app",
   "rules": {
-      "flowtype/define-flow-type": 1,
-      "flowtype/use-flow-type": 1
+    "comma-dangle": ["error", {
+        "objects": "always-multiline",
+        "functions": "never",
+        "arrays": "always-multiline",
+        "imports": "never",
+        "exports": "never"
+    }],
+    "react/no-deprecated": false
   },
   "globals": {
     "warning": true

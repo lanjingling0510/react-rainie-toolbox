@@ -11,7 +11,7 @@ class TableTr extends Component {
     theme: PropTypes.shape({
       tr: PropTypes.string,
       active: PropTypes.string,
-    })
+    }),
   }
 
   static defaultProps = {

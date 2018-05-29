@@ -148,7 +148,7 @@ const factory = (ripple: () => void, FontIcon: Component) => {
       return React.createElement(element, props,
         icon ? <FontIcon spin={iconSpin} className={theme.icon} value={icon} /> : null,
         label,
-        children,
+        children
       );
     }
   }

@@ -57,7 +57,7 @@ const factory = (Check) => {
 
     render() {
       const { checked, children, disabled, label, name, style, onChange, // eslint-disable-line
-        onMouseEnter, onMouseLeave, onMouseOver, onMouseOut, theme, ...others } = this.props;
+        onMouseEnter, onMouseLeave, onMouseOver, onMouseOut, onMouseDown, theme, ...others } = this.props;
       const className = classnames(theme.field, {
         [theme.disabled]: this.props.disabled,
       }, this.props.className);
@@ -70,6 +70,7 @@ const factory = (Check) => {
           onMouseOut={onMouseOut}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
+          onMouseDown={onMouseDown}
         >
           <input
             {...others}

@@ -7,11 +7,11 @@ class Portal extends Component {
     children: PropTypes.node,
     className: PropTypes.string,
     container: PropTypes.node,
-  }
+  };
 
   static defaultProps = {
     className: '',
-  }
+  };
 
   componentDidMount() {
     this._renderOverlay();
@@ -40,7 +40,9 @@ class Portal extends Component {
 
   getOverlayDOMNode() {
     if (!this.isMounted()) { // eslint-disable-line
-      throw new Error('getOverlayDOMNode(): A component must be mounted to have a DOM node.');
+      throw new Error(
+        'getOverlayDOMNode(): A component must be mounted to have a DOM node.'
+      );
     }
 
     if (this._overlayInstance) {
@@ -63,7 +65,9 @@ class Portal extends Component {
     if (overlay !== null) {
       this._mountOverlayTarget();
       this._overlayInstance = ReactDOM.unstable_renderSubtreeIntoContainer(
-        this, overlay, this._overlayTarget,
+        this,
+        overlay,
+        this._overlayTarget
       );
     } else {
       this._unrenderOverlay();
@@ -97,7 +101,6 @@ class Portal extends Component {
   render() {
     return null;
   }
-
 }
 
 function getContainer(container) {

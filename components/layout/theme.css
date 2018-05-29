@@ -10,6 +10,21 @@
     background: var(--layout-background);
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex {
+    flex: auto;
+}
+
+
 .hasSider {
     flex-direction: row;
 }

@@ -14,6 +14,7 @@ const factory = (Tab, TabContent) => {
       hideMode: PropTypes.oneOf(['display', 'unmounted']),
       index: PropTypes.number,
       onChange: PropTypes.func,
+      isTab: PropTypes.func,
       theme: PropTypes.shape({
         navigation: PropTypes.string,
         navigationContainer: PropTypes.string,
@@ -24,19 +25,33 @@ const factory = (Tab, TabContent) => {
 
     static defaultProps = {
       hideMode: 'unmounted',
-      index: 0,
     }
 
-    state = {
-      pointer: {},
+    constructor(props) {
+      super(props);
+
+      let index = 0;
+      if ('index' in props && 'onChange' in props) {
+        index = props.index;
+      }
+
+      this.state = {
+        pointer: {},
+        index: index,
+      }
     }
 
     componentDidMount() {
-      this.updatePointer(this.props.index);
+      this.updatePointer(this.state.index);
     }
 
     componentWillReceiveProps(nextProps) {
-      this.updatePointer(nextProps.index);
+      if ('index' in nextProps && 'onChange' in nextProps) {
+        this.updatePointer(nextProps.index);
+        this.setState({
+          index: nextProps.index,
+        });
+      }
     }
 
     parseChildren() {
@@ -44,13 +59,13 @@ const factory = (Tab, TabContent) => {
       const contents = [];
 
       React.Children.forEach(this.props.children, (item) => {
-        if (isTab(item)) {
+        if ((this.props.isTab && this.props.isTab(item)) || isTab(item)) {
           headers.push(item);
           if (item.props.children) {
             contents.push(
               <TabContent theme={this.props.theme}>
                 {item.props.children}
-              </TabContent>,
+              </TabContent>
             );
           }
         } else if (isTabContent(item)) {
@@ -76,46 +91,59 @@ const factory = (Tab, TabContent) => {
       }
     }
 
+    handleHeaderClick = (item, idx) => (event, index) => {
+      if ('onChange' in this.props) {
+        this.props.onChange(idx);
+      } else {
+        this.updatePointer(idx);
+        this.setState({index: idx});
+      }
+
+      if (item.props.onClick) item.props.onClick(event);
+    }
+
     renderHeaders(headers) {
       return headers.map((item, idx) => React.cloneElement(item, {
         children: null,
         key: idx,
         index: idx,
         theme: this.props.theme,
-        active: this.props.index === idx,
-        onClick: (event, index) => {
-          if (this.props.onChange) this.props.onChange(idx);
-          if (item.props.onClick) item.props.onClick(event);
-        },
+        active: this.state.index === idx,
+        onClick: this.handleHeaderClick(item, idx),
       }));
     }
-
 
     renderContents(contents) {
       const contentElements = contents.map((item, idx) => React.cloneElement(item, {
         key: idx,
         theme: this.props.theme,
-        active: this.props.index === idx,
-        hidden: this.props.index !== idx && this.props.hideMode === 'display',
+        active: this.state.index === idx,
+        hidden: this.state.index !== idx && this.props.hideMode === 'display',
         tabIndex: idx,
       }));
 
       return this.props.hideMode === 'display'
         ? contentElements
-        : contentElements.filter((item, idx) => (idx === this.props.index));
+        : contentElements.filter((item, idx) => (idx === this.state.index));
     }
 
     render() {
       const {
         theme,
         className,
+        hideMode,
+        index,
+        onChange,
+        children,
+        isTab,
+        ...other
       } = this.props;
 
       const { headers, contents } = this.parseChildren();
       const classes = classnames(theme.tabs, className);
 
       return (
-        <div data-react-toolbox="tabs" className={classes}>
+        <div data-react-toolbox="tabs" className={classes} {...other}>
           <div className={theme.navigationContainer}>
              <nav className={theme.navigation} ref={(node) => { this.navigationNode = node; }}>
                {this.renderHeaders(headers)}
