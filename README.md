@@ -1,9 +1,10 @@
 # react-rainie-toolbox
 [![Travis][build-badge]][build] [![npm package][npm-badge]][npm] [![Coveralls][coveralls-badge]][coveralls]
 
-`react-rainie-toolbox` 是针对于cqaso产品场景开发的一系列的pc端react组件集。
-包括的场景有：后台管理系统，CQASO，TOPASM操作复杂的PC网站。
+`react-rainie-toolbox` 是扁平化的一系列的pc端react组件集。
+包括的场景有：后台管理系统，复杂的PC网站。
 
+[关于react-rainie-toolbox的可视化配置平台](http://react-rainie-toolbox-www.cyt-rain.cn/)
 
 
 ## 特性
